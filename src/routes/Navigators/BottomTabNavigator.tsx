@@ -5,7 +5,7 @@ import { HomeScreen, EGPScreen } from '@screens'
 import { Routes } from '@routes/enums/routeNames.enum'
 import { getTabBarIconNameByRoute } from '@utils/navigators'
 import { useTheme } from '@hooks/useTheme'
-import { Logo } from '@components/Logo'
+import { Logo } from '@components'
 
 export type NavigatorParamsList = {
   [Routes.HOME]: undefined
