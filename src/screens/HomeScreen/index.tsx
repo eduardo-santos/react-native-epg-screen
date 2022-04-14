@@ -2,8 +2,8 @@ import React from 'react'
 import { ScrollView, View, Text, StyleSheet } from 'react-native'
 import { useTheme } from '@hooks/useTheme'
 import { IColors } from '@ds/colors/type'
-import { useAuthAnonymousApi } from '@api/hooks/useAuthAnonymousApi'
 import { ApiError, ApiLoading, ScreenWrapper } from '@components'
+import { useAuthAnonymousApi } from '@api/hooks'
 
 export const HomeScreen: React.FC = () => {
   const { colors } = useTheme()
