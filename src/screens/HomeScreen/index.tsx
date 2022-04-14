@@ -1,11 +1,21 @@
 import React from 'react'
 import { ScrollView, View, Text, StyleSheet } from 'react-native'
-import { ScreenWrapper } from '@components/ScreenWrapper'
 import { useTheme } from '@hooks/useTheme'
 import { IColors } from '@ds/colors/type'
+import { useAuthAnonymousApi } from '@api/hooks/useAuthAnonymousApi'
+import { ApiError, ApiLoading, ScreenWrapper } from '@components'
 
 export const HomeScreen: React.FC = () => {
   const { colors } = useTheme()
+  const { reponseData, loading, error } = useAuthAnonymousApi()
+
+  if (loading) {
+    return <ApiLoading />
+  }
+
+  if (error) {
+    return <ApiError />
+  }
 
   const styles = generateStyle(colors)
 
@@ -14,6 +24,7 @@ export const HomeScreen: React.FC = () => {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={styles.background}>
           <Text>Home Screen</Text>
+          <Text>{reponseData.sessionId}</Text>
         </View>
       </ScrollView>
     </ScreenWrapper>

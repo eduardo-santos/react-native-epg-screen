@@ -1,8 +1,8 @@
 import React from 'react'
 import { ScrollView, View, Text, StyleSheet } from 'react-native'
-import { ScreenWrapper } from '@components/ScreenWrapper'
 import { useTheme } from '@hooks/useTheme'
 import { IColors } from '@ds/colors/type'
+import { ScreenWrapper } from '@components'
 
 export const EGPScreen: React.FC = () => {
   const { colors } = useTheme()
