@@ -1,21 +1,26 @@
+import { DynamicStatusBar, SafeArea } from '@components'
 import React from 'react'
-import { DynamicStatusBar } from '@components/DynamicStatusBar'
-import { SafeArea } from '@components/SafeArea'
+import { View } from 'react-native'
+import { generateStyle } from './styles'
 
 interface IScreenWrapperProps {
   children: React.ReactNode
   useSafeArea?: boolean
+  usePadding?: boolean
 }
 
 export const ScreenWrapper: React.FC<IScreenWrapperProps> = ({
   children,
   useSafeArea,
+  usePadding,
 }) => {
+  const styles = generateStyle(usePadding)
+
   if (useSafeArea) {
     return (
       <SafeArea>
         <DynamicStatusBar />
-        {children}
+        <View style={styles.wrapper}>{children}</View>
       </SafeArea>
     )
   }
@@ -23,7 +28,7 @@ export const ScreenWrapper: React.FC<IScreenWrapperProps> = ({
   return (
     <>
       <DynamicStatusBar />
-      {children}
+      <View style={styles.wrapper}>{children}</View>
     </>
   )
 }
