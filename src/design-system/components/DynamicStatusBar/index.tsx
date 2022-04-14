@@ -1,6 +1,6 @@
-import { useTheme } from '@hooks/useTheme'
 import React from 'react'
 import { StatusBar } from 'react-native'
+import { useTheme } from '@hooks/useTheme'
 
 export const DynamicStatusBar: React.FC = () => {
   const { isDarkMode } = useTheme()

@@ -1,10 +1,15 @@
-import { Colors } from '@colors'
 import { StyleSheet } from 'react-native'
+import { IColors } from '@ds/colors/type'
 
-export const generateStyle = (isDarkMode: boolean) => {
+export const generateStyle = (colors: IColors) => {
   return StyleSheet.create({
-    background: {
-      backgroundColor: isDarkMode ? Colors.BLACK : Colors.WHITE,
+    top: {
+      flex: 0,
+      backgroundColor: colors.app.SECONDARY,
+    },
+    bottom: {
+      flex: 1,
+      backgroundColor: colors.app.TERTIARY,
     },
   })
 }

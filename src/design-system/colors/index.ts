@@ -1,44 +1,29 @@
-export enum Colors {
-  // APP COLORS
-  PRIMARY = '#F3B329',
-  SECONDARY = '#000000',
-  TERTIARY = '#202020',
-  FORTIARY = '#393939',
-
+export const ColorsDefault = {
   // GRAY SCALE
-  BLACK = '#000000',
-  GRAPHITE = '#5B5B5F',
-  INOX = '#D3D3D3',
-  ICE = '#ECECEC',
-  FOG = '#F4F4F4',
-  SAND = '#F6F3EA',
-  WHITE = '#FFFFFF',
-  TRANSPARENT = 'transparent',
+  BLACK: '#000000',
+  GRAPHITE: '#5B5B5F',
+  INOX: '#D3D3D3',
+  ICE: '#ECECEC',
+  FOG: '#F4F4F4',
+  SAND: '#F6F3EA',
+  WHITE: '#FFFFFF',
+  TRANSPARENT: 'transparent',
+}
 
-  // OTHER
-  WATER = '#00C3BF',
-  BLUEBERRY = '#B4022D',
-  DARK_HAIL = '#808080',
-  CHAMELEON = '#00AD1A',
-  DARK_RED = '#720924',
-  GREEN = '#009500',
-  MOSS_GREEN = '#00853E',
-  DARK_GREEN = '#2F600A',
-  LIGHT_ORANGE = '#FFC28B',
-  ORANGE = '#E2682E',
-  DARK_ORANGE = '#873E1B',
-  BLUE = '#12BFDE',
-  DARK_BLUE = '#006685',
-  PURPLE = '#6F3ECC',
-  DARK_PURPLE = '#36196C',
-  TEAL = '#01AB9C',
-  DARK_TEAL = '#00554D',
-  YELLOW = '#FCB500',
-  DARK_YELLOW = '#895305',
-  FUCHSIA = '#CA40C5',
-  DARK_FUCHSIA = '#861186',
-  GREY_FONT = '#87868A',
-  GREY_F3 = '#f3f3f3',
-  GREY_97 = '#979797',
-  CHERRY_NEW = '#89153D',
+// APP DARK COLORS
+export const ColorsDark = {
+  PRIMARY: '#F3B329',
+  SECONDARY: '#000000',
+  TERTIARY: '#202020',
+  FORTIARY: '#393939',
+  HIGHLIGHT: '#FFFFFF',
+}
+
+// APP LIGHT COLORS
+export const ColorsLight = {
+  PRIMARY: '#F3B329',
+  SECONDARY: '#D3D3D3',
+  TERTIARY: '#F6F3EA',
+  FORTIARY: '#FFFFFF',
+  HIGHLIGHT: '#000000',
 }

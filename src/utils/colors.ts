@@ -1,6 +1,5 @@
-import { Colors } from '@colors'
-
-type ColorAlpha = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1
+import { ColorsDefault, ColorsDark, ColorsLight } from '@colors'
+import { ColorAlpha, Colors, IColors } from '@ds/colors/type'
 
 export const getColorWithTransparency = (
   color: Colors,
@@ -8,4 +7,18 @@ export const getColorWithTransparency = (
 ) => {
   const opacity = Math.round(alpha * 255)
   return color + opacity.toString(16).toUpperCase()
+}
+
+export const getThemeColors = (isDarkMode: boolean): IColors => {
+  if (isDarkMode) {
+    return {
+      default: ColorsDefault,
+      app: ColorsDark,
+    }
+  }
+
+  return {
+    default: ColorsDefault,
+    app: ColorsLight,
+  }
 }

@@ -23,7 +23,9 @@
       "@components/*": ["design-system/components/*"],
       "@ds/*": ["design-system/*"],
       "@hooks/*": ["hooks/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@routes/*": ["routes/*"],
+      "@screens": ["screens"]
     }
   },
   "exclude": [
