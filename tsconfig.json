@@ -20,12 +20,14 @@
     "paths": {
       "@assets/*": ["design-system/assets/*"],
       "@colors": ["design-system/colors"],
+      "@components": ["design-system/components"],
       "@components/*": ["design-system/components/*"],
       "@ds/*": ["design-system/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@routes/*": ["routes/*"],
-      "@screens": ["screens"]
+      "@screens": ["screens"],
+      "@api/*": ["api/*"]
     }
   },
   "exclude": [

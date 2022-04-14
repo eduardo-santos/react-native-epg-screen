@@ -15,6 +15,7 @@ module.exports = {
           '@utils': ['./src/utils'],
           '@routes': ['./src/routes'],
           '@screens': ['./src/screens'],
+          '@api': ['./src/api'],
         },
       },
     ],
