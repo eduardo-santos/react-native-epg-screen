@@ -1,4 +1,4 @@
 export enum Routes {
   HOME = 'Home',
-  EGP = 'EGP',
+  EPG = 'EPG',
 }

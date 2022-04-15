@@ -1,4 +1,4 @@
-import { EGPScreen } from './EGPScreen/index'
+import { EPGScreen } from './EPGScreen/index'
 import { HomeScreen } from './HomeScreen/index'
 
-export { HomeScreen, EGPScreen }
+export { HomeScreen, EPGScreen }

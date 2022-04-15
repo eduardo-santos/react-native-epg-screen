@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { HomeScreen, EGPScreen } from '@screens'
+import { HomeScreen, EPGScreen } from '@screens'
 import { Routes } from '@routes/enums/routeNames.enum'
 import { getTabBarIconNameByRoute } from '@utils/navigators'
 import { useTheme } from '@hooks/useTheme'
@@ -9,7 +9,7 @@ import { Logo } from '@components'
 
 export type NavigatorParamsList = {
   [Routes.HOME]: undefined
-  [Routes.EGP]: undefined
+  [Routes.EPG]: undefined
 }
 
 const Tab = createBottomTabNavigator<NavigatorParamsList>()
@@ -23,16 +23,17 @@ const TabNavigator: React.FC<ITabNavigator> = ({ children }) => {
 
   return (
     <Tab.Navigator
+      initialRouteName={Routes.EPG}
       screenOptions={({ route }) => ({
         headerTitle: () => <Logo />,
         headerTitleAlign: 'center',
-        headerTintColor: colors.app.HIGHLIGHT,
+        headerTintColor: colors.app.ACCENT,
         headerStyle: {
           backgroundColor: colors.app.SECONDARY,
           height: 110,
         },
         tabBarActiveTintColor: colors.app.PRIMARY,
-        tabBarInactiveTintColor: colors.app.HIGHLIGHT,
+        tabBarInactiveTintColor: colors.app.ACCENT,
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: colors.app.TERTIARY,
@@ -54,7 +55,7 @@ export const BottomTabNavigator: React.FC = () => {
   return (
     <TabNavigator>
       <Tab.Screen name={Routes.HOME} component={HomeScreen} />
-      <Tab.Screen name={Routes.EGP} component={EGPScreen} />
+      <Tab.Screen name={Routes.EPG} component={EPGScreen} />
     </TabNavigator>
   )
 }
