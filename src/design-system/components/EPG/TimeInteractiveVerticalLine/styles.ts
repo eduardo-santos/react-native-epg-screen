@@ -1,6 +1,7 @@
 import { StyleSheet, ViewStyle } from 'react-native'
 import { IColors } from '@ds/colors/type'
 import { ScreenHeight } from '@utils/dimensions'
+import { getColorWithTransparency } from '@utils/colors'
 
 const verticalLineProps = (
   colors: IColors,
@@ -24,17 +25,25 @@ export const generateStyle = (
   const verticalLineLeft = xStartPosition + livePosition
 
   return StyleSheet.create({
+    pastShadow: {
+      position: 'absolute',
+      top: 51,
+      left: xStartPosition,
+      width: verticalLineLeft - xStartPosition,
+      height: ScreenHeight,
+      backgroundColor: getColorWithTransparency(colors.default.BLACK, 0.5),
+    },
     thickCenterVerticalLine: {
       ...verticalLineProps(colors, verticalLineLeft),
       width: 4,
-      zIndex: 1,
+      zIndex: 999,
     },
     thinCenterVerticalLine: {
       ...verticalLineProps(colors, verticalLineLeft),
       width: 1,
       height: ScreenHeight,
       left: verticalLineLeft + 1,
-      zIndex: 0,
+      zIndex: 998,
     },
   })
 }

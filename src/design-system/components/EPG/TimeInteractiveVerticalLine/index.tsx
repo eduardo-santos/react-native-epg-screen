@@ -81,6 +81,7 @@ export const TimeInteractiveVerticalLine: React.FC<
     <>
       <View style={styles.thickCenterVerticalLine} />
       <View style={styles.thinCenterVerticalLine} />
+      <View style={styles.pastShadow} />
     </>
   )
 }
