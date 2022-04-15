@@ -5,11 +5,15 @@ interface ISchedules {
   end: number
 }
 
-export interface IEPGResponseModel {
+export interface IChannel {
   id: string
   title: string
   images: {
     LOGO: string
   }
-  schedules: [ISchedules]
+  schedules: ISchedules[]
+}
+
+export interface IEPGResponseModel {
+  channels: IChannel[]
 }

@@ -14,5 +14,5 @@ interface IContents {
 
 export interface ICategoriesSvodResponseModel {
   title: string
-  contents: [IContents]
+  contents: IContents[]
 }

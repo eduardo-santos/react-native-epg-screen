@@ -12,7 +12,7 @@ export interface IChannelProgramDetailsResponseModel {
     }
     title: string
     channelId: string
-    terminals: [string]
+    terminals: string[]
   }
   id: string
 }

@@ -20,5 +20,5 @@ interface IContents {
 }
 
 export interface ISlideShowResponseModel {
-  contents: [IContents]
+  contents: IContents[]
 }

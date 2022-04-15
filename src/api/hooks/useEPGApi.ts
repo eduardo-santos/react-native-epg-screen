@@ -7,7 +7,9 @@ export const useEPGApi = () => {
     method: 'GET',
   })
 
-  const reponseData: IEPGResponseModel = data
+  const reponseData: IEPGResponseModel = {
+    channels: data,
+  }
 
   return {
     reponseData,
