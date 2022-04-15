@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  LayoutChangeEvent,
-  LayoutRectangle,
-  Text,
-  TextLayoutEventData,
-  TextProps,
-} from 'react-native'
+import { LayoutChangeEvent, Text, TextProps } from 'react-native'
 import { useTheme } from '@hooks/useTheme'
 import { Colors } from '@ds/colors/type'
 import { styles, TextVariant } from './styles'

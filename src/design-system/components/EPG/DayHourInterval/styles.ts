@@ -3,11 +3,10 @@ import { IColors } from '@ds/colors/type'
 
 export const generateStyle = (
   colors: IColors,
-  xStartPosition: number,
-  xEndPosition: number,
+  textWidth: number,
+  xMarkLineLeftPosition: number,
+  xMarkLineRightPosition: number,
 ) => {
-  const paddingLeft = 70
-
   const lineMarkStyle: ViewStyle = {
     width: 2,
     backgroundColor: colors.app.FORTIARY,
@@ -22,17 +21,20 @@ export const generateStyle = (
       justifyContent: 'space-between',
       borderBottomWidth: 1,
       borderBottomColor: colors.app.FORTIARY,
-      paddingLeft: paddingLeft,
+      paddingLeft: xMarkLineLeftPosition,
       paddingRight: 16,
       paddingVertical: 12,
     },
+    leftText: {
+      marginLeft: -textWidth / 2,
+    },
     leftMarkLine: {
       ...lineMarkStyle,
-      left: xStartPosition,
+      left: xMarkLineLeftPosition,
     },
     rightMarkLine: {
       ...lineMarkStyle,
-      left: xEndPosition,
+      left: xMarkLineRightPosition,
     },
   })
 }

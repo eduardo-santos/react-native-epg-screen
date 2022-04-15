@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FlatList, ListRenderItem } from 'react-native'
 import { addDateDays, getEachDayOfInterval, subDateDays } from '@utils/date'
 import { useTheme } from '@hooks/useTheme'
-import { WeekDay } from '@components/EPG'
+import { WeekDay } from './WeekDay'
 import { generateStyle } from './styles'
 
 interface IWeekDateIntervalProps {
