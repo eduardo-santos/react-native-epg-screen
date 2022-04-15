@@ -11,6 +11,7 @@ module.exports = {
         'no-shadow': 'off',
         'no-undef': 'off',
         '@typescript-eslint/semi': ['error', 'never'],
+        'react-hooks/exhaustive-deps': 0,
       },
     },
   ],
