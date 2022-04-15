@@ -30,13 +30,13 @@ export const WeekDay: React.FC<IWeekDayProps> = ({
           bold={isSelected}
           align="center">
           {formattedDay}
-          <DynamicText
-            variant="small"
-            color={textColor}
-            bold={isSelected}
-            align="center">
-            {'\n' + formattedDayAndMonth}
-          </DynamicText>
+        </DynamicText>
+        <DynamicText
+          variant="small"
+          color={textColor}
+          bold={isSelected}
+          align="center">
+          {formattedDayAndMonth}
         </DynamicText>
       </View>
     </TouchableOpacity>
