@@ -11,5 +11,5 @@ interface ILogoProps {
 export const Logo: React.FC<ILogoProps> = ({ width, height }) => {
   const styles = generateStyle(width, height)
 
-  return <Image style={styles.logo} source={IMAGES.LOGO} />
+  return <Image source={IMAGES.LOGO} resizeMode="contain" style={styles.logo} />
 }
