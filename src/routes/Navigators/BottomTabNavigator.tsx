@@ -14,11 +14,11 @@ export type NavigatorParamsList = {
 
 const Tab = createBottomTabNavigator<NavigatorParamsList>()
 
-interface ITabNavigator {
+interface ITabNavigatorProps {
   children: React.ReactNode
 }
 
-const TabNavigator: React.FC<ITabNavigator> = ({ children }) => {
+const TabNavigator: React.FC<ITabNavigatorProps> = ({ children }) => {
   const { colors } = useTheme()
 
   return (

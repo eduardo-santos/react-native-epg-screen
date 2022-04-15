@@ -16,7 +16,7 @@ export const HomeScreen: React.FC = () => {
 
   return (
     <ScreenWrapper>
-      <View style={styles.background}>
+      <View style={styles.wrapper}>
         <DynamicText variant="header1" bold>
           Welcome
         </DynamicText>
@@ -26,7 +26,7 @@ export const HomeScreen: React.FC = () => {
   )
 }
 const styles = StyleSheet.create({
-  background: {
+  wrapper: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
