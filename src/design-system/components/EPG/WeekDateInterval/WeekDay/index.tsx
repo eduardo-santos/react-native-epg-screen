@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { useTheme } from '@hooks/useTheme'
 import { DynamicText } from '@components/DynamicText'
-import { styles } from './styles'
+import { generateStyle } from './styles'
 import { formatDate } from '@utils/date'
 
 interface IWeekDayProps {
@@ -20,6 +20,8 @@ export const WeekDay: React.FC<IWeekDayProps> = ({
   const formattedDay = formatDate(date, 'iii')
   const formattedDayAndMonth = formatDate(date, 'dd/MM')
   const textColor = isSelected ? colors.app.ACCENT : colors.default.INOX
+
+  const styles = generateStyle(colors, isSelected)
 
   return (
     <TouchableOpacity onPress={onPress}>
