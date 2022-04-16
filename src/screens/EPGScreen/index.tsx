@@ -4,7 +4,7 @@ import { ApiError, ApiLoading, ScreenWrapper } from '@components'
 import {
   WeekDateInterval,
   DayHourInterval,
-  ChannelsLeftBar,
+  ChannelsContainer,
 } from '@components/EPG'
 import { useEPGApi } from '@api/hooks'
 
@@ -24,7 +24,7 @@ export const EPGScreen: React.FC = () => {
       <View style={styles.wrapper}>
         <WeekDateInterval onSelectDate={(date: Date) => console.log(date)} />
         <DayHourInterval />
-        <ChannelsLeftBar channels={reponseData.channels} />
+        <ChannelsContainer channels={reponseData.channels} />
       </View>
     </ScreenWrapper>
   )

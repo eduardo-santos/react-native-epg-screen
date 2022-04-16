@@ -1,4 +1,4 @@
-interface ISchedules {
+export interface IChannelSchedule {
   id: string
   title: string
   start: number
@@ -11,7 +11,7 @@ export interface IChannel {
   images: {
     LOGO: string
   }
-  schedules: ISchedules[]
+  schedules: IChannelSchedule[]
 }
 
 export interface IEPGResponseModel {

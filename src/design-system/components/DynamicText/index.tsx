@@ -1,22 +1,21 @@
 import React from 'react'
-import { LayoutChangeEvent, Text, TextProps } from 'react-native'
+import {
+  LayoutChangeEvent,
+  LayoutRectangle,
+  Text,
+  TextProps,
+} from 'react-native'
 import { useTheme } from '@hooks/useTheme'
 import { Colors } from '@ds/colors/type'
 import { styles, TextVariant } from './styles'
 
-export interface ITextLayout {
-  width: number
-  height: number
-  x: number
-  y: number
-}
 interface IDynamicTextProps extends TextProps {
   children: React.ReactNode
   variant: TextVariant
   bold?: boolean
   color?: Colors
   align?: 'auto' | 'center' | 'justify' | 'left' | 'right'
-  getTextLayout?: ({ width, height, x, y }: ITextLayout) => void
+  getTextLayout?: ({ width, height, x, y }: LayoutRectangle) => void
 }
 
 export const DynamicText: React.FC<IDynamicTextProps> = ({
