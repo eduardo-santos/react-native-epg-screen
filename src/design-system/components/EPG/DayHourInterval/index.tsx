@@ -29,9 +29,9 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
 
   const paddingLeft = CHANNEL_LEFT_BAR_WIDTH
   const xLineStartPosition = paddingLeft
-  const xLineEndPosition = ScreenWidth - paddingLeft - textWidth - 16
-  const xMarkLineLeftPosition = xLineStartPosition
   const xMarkLineRightPosition = ScreenWidth - textWidth / 2 - 16
+  const xLineEndPosition = xMarkLineRightPosition - paddingLeft
+  const xMarkLineLeftPosition = xLineStartPosition
 
   const styles = generateStyle(
     colors,

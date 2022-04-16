@@ -22,7 +22,7 @@ export const ChannelSchedules: React.FC<IChannelSchedulesProps> = ({
     <View style={styles.wrapper}>
       {schedules.map((schedule, index) => {
         const backgroundColor =
-          index % 2 === 0 ? colors.default.BLACK : colors.app.FORTIARY
+          index % 2 === 0 ? colors.default.GRAPHITE : colors.app.FORTIARY
 
         return (
           <View key={index} style={[styles.scheduleCard, { backgroundColor }]}>
