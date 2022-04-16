@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { LayoutRectangle, View } from 'react-native'
 import { addDateMinutes, formatDate, subDateMinutes } from '@utils/date'
 import { useTheme } from '@hooks/useTheme'
-import { DynamicText, ITextLayout } from '@components/DynamicText'
+import { DynamicText } from '@components/DynamicText'
 import { TimeInteractiveVerticalLine } from '@components/EPG'
 import { ScreenWidth } from '@utils/dimensions'
-import { CHANNEL_LEFT_BAR_WIDTH } from '../ChannelsLeftBar/styles'
+import { CHANNEL_LEFT_BAR_WIDTH } from '@components/EPG/ChannelsContainer/ChannelsLeftBar/styles'
 import { generateStyle } from './styles'
 
 interface IWeekDateIntervalProps {
@@ -28,7 +28,6 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   const formattedFutureHour = formatDate(futureHour, 'HH:mm')
 
   const paddingLeft = CHANNEL_LEFT_BAR_WIDTH
-  // const xLineStartPosition = paddingLeft - textWidth / 2
   const xLineStartPosition = paddingLeft
   const xLineEndPosition = ScreenWidth - paddingLeft - textWidth - 16
   const xMarkLineLeftPosition = xLineStartPosition
@@ -41,12 +40,12 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
     xMarkLineRightPosition,
   )
 
-  const handleOnLayout = ({ width }: ITextLayout) => {
+  const handleOnLayout = ({ width }: LayoutRectangle) => {
     setTextWidth(width)
   }
 
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.wrapper} pointerEvents="none">
       <DynamicText
         variant="header3"
         color={colors.app.ACCENT}

@@ -28,7 +28,7 @@ export const generateStyle = (
     pastShadow: {
       position: 'absolute',
       top: 51,
-      left: xStartPosition,
+      left: xStartPosition - 1,
       width: verticalLineLeft - xStartPosition,
       height: ScreenHeight,
       backgroundColor: getColorWithTransparency(colors.default.BLACK, 0.5),
