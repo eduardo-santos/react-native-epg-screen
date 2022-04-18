@@ -1,4 +1,4 @@
-# react-native-epg-screen
+# React Native EPG Screen
 A React Native App with an EPG sample screen:
  - EPG Screen is using data from a mocked API
  - Settings screen to change App theme color
