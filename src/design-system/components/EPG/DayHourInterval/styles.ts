@@ -56,7 +56,7 @@ export const generateStyle = (
     },
     nowButton: {
       position: 'absolute',
-      top: ScreenHeight * 0.62,
+      top: ScreenHeight * 0.61,
       right: 16,
       zIndex: 1000,
     },

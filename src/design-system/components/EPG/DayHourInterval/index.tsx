@@ -122,18 +122,21 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
     const customProps = textWidth <= 0 ? { getTextLayout: handleOnLayout } : {}
     const { startTime, endTime } = interval
 
+
     return (
       <View style={styles.wrapper}>
         <TouchableHighlight
           onPress={goToNextPastInterval}
           style={styles.intervalPressable}>
           <>
-            <MaterialCommunityIcons
-              name="chevron-left"
-              size={22}
-              color={colors.app.ACCENT_2}
-              style={styles.leftChevron}
-            />
+            {selectedTimeIntervalIndex > 0 && (
+              <MaterialCommunityIcons
+                name="chevron-left"
+                size={22}
+                color={colors.app.ACCENT_2}
+                style={styles.leftChevron}
+              />
+            )}
             <DynamicText
               variant="header3"
               color={colors.app.ACCENT}
@@ -150,12 +153,14 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
             <DynamicText variant="header3" color={colors.app.ACCENT}>
               {endTime.formatted}
             </DynamicText>
-            <MaterialCommunityIcons
-              name="chevron-right"
-              size={22}
-              color={colors.app.ACCENT_2}
-              style={styles.rightChevron}
-            />
+            {selectedTimeIntervalIndex < 23 && (
+              <MaterialCommunityIcons
+                name="chevron-right"
+                size={22}
+                color={colors.app.ACCENT_2}
+                style={styles.rightChevron}
+              />
+            )}
           </>
         </TouchableHighlight>
       </View>
