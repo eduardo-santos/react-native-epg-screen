@@ -6,6 +6,7 @@ import { Routes } from '@routes/enums/routeNames.enum'
 import { getTabBarIconNameByRoute } from '@utils/navigators'
 import { useTheme } from '@hooks/useTheme'
 import { Logo } from '@components'
+import { ScreenHeight } from '@utils/dimensions'
 
 export type NavigatorParamsList = {
   [Routes.HOME]: undefined
@@ -31,7 +32,7 @@ const TabNavigator: React.FC<ITabNavigatorProps> = ({ children }) => {
         headerTintColor: colors.app.ACCENT,
         headerStyle: {
           backgroundColor: colors.app.SECONDARY,
-          height: 110,
+          height: ScreenHeight * 0.13,
         },
         tabBarActiveTintColor: colors.app.PRIMARY,
         tabBarInactiveTintColor: colors.app.ACCENT,
