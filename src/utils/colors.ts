@@ -1,5 +1,6 @@
 import { ColorsDefault, ColorsDark, ColorsLight } from '@colors'
 import { ColorAlpha, Colors, IColors } from '@ds/colors/type'
+import { ThemeType } from '@contexts/ThemeContext'
 
 export const getColorWithTransparency = (
   color: Colors,
@@ -9,8 +10,8 @@ export const getColorWithTransparency = (
   return color + opacity.toString(16).toUpperCase()
 }
 
-export const getThemeColors = (isDarkMode: boolean): IColors => {
-  if (isDarkMode) {
+export const getThemeColors = (currentTheme: ThemeType): IColors => {
+  if (currentTheme === 'dark') {
     return {
       default: ColorsDefault,
       app: ColorsDark,

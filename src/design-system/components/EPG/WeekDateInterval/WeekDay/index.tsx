@@ -19,7 +19,7 @@ export const WeekDay: React.FC<IWeekDayProps> = ({
   const { colors } = useTheme()
   const formattedDay = formatDate(date, 'iii')
   const formattedDayAndMonth = formatDate(date, 'dd/MM')
-  const textColor = isSelected ? colors.app.ACCENT : colors.default.INOX
+  const textColor = isSelected ? colors.app.ACCENT : colors.app.ACCENT_2
 
   const styles = generateStyle(colors, isSelected)
 

@@ -16,6 +16,7 @@ module.exports = {
           '@routes': ['./src/routes'],
           '@screens': ['./src/screens'],
           '@api': ['./src/api'],
+          '@contexts': ['./src/contexts'],
         },
       },
     ],

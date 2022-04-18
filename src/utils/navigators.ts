@@ -7,6 +7,8 @@ export const getTabBarIconNameByRoute = (routeName: string): string => {
       return FontIcons.HOME
     case Routes.EPG:
       return FontIcons.EPG
+    case Routes.SETTINGS:
+      return FontIcons.SETTINGS
     default:
       return ''
   }

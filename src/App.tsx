@@ -11,17 +11,20 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { BottomTabNavigator } from '@routes/Navigators/BottomTabNavigator'
 import { configureApi } from '@api/config'
+import { ThemeProvider } from '@contexts/ThemeContext'
 
 MaterialCommunityIcons.loadFont()
 configureApi()
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <BottomTabNavigator />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <ThemeProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <BottomTabNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </ThemeProvider>
   )
 }
 

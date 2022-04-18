@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, ViewStyle } from 'react-native'
 import { IColors } from '@ds/colors/type'
 
 export const generateStyle = (colors: IColors, leftBarCardHeight: number) => {
@@ -16,6 +16,6 @@ export const generateStyle = (colors: IColors, leftBarCardHeight: number) => {
       borderBottomColor: colors.app.FORTIARY,
       borderRightWidth: 1,
       borderRightColor: colors.app.FORTIARY,
-    },
+    } as ViewStyle,
   })
 }

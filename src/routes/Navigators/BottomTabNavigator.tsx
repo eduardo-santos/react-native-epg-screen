@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { HomeScreen, EPGScreen } from '@screens'
+import { HomeScreen, EPGScreen, SettingsScreen } from '@screens'
 import { Routes } from '@routes/enums/routeNames.enum'
 import { getTabBarIconNameByRoute } from '@utils/navigators'
 import { useTheme } from '@hooks/useTheme'
@@ -10,6 +10,7 @@ import { Logo } from '@components'
 export type NavigatorParamsList = {
   [Routes.HOME]: undefined
   [Routes.EPG]: undefined
+  [Routes.SETTINGS]: undefined
 }
 
 const Tab = createBottomTabNavigator<NavigatorParamsList>()
@@ -56,6 +57,7 @@ export const BottomTabNavigator: React.FC = () => {
     <TabNavigator>
       <Tab.Screen name={Routes.HOME} component={HomeScreen} />
       <Tab.Screen name={Routes.EPG} component={EPGScreen} />
+      <Tab.Screen name={Routes.SETTINGS} component={SettingsScreen} />
     </TabNavigator>
   )
 }

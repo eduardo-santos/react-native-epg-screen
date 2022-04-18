@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { ApiError, ApiLoading, DynamicText, ScreenWrapper } from '@components'
 import { useAuthAnonymousApi } from '@api/hooks'
+import { styles } from './styles'
 
 export const HomeScreen: React.FC = () => {
   const { reponseData, loading, error } = useAuthAnonymousApi()
@@ -25,10 +26,3 @@ export const HomeScreen: React.FC = () => {
     </ScreenWrapper>
   )
 }
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

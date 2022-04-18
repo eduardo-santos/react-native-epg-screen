@@ -27,7 +27,8 @@
       "@utils/*": ["utils/*"],
       "@routes/*": ["routes/*"],
       "@screens": ["screens"],
-      "@api/*": ["api/*"]
+      "@api/*": ["api/*"],
+      "@contexts/*": ["contexts/*"]
     }
   },
   "exclude": [

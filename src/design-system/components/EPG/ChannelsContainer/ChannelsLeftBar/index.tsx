@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { LayoutRectangle, View } from 'react-native'
 import { IMAGES } from '@utils/images'
 import { IChannel } from '@api/models/IEPGResponseModel'
-import { styles } from 'screens/EPGScreen'
 import { ChannelCard } from '@components/EPG'
+import { styles } from './styles'
 
 interface IChannelsLeftBarProps {
   channels: IChannel[]

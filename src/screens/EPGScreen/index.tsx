@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { ApiError, ApiLoading, ScreenWrapper } from '@components'
 import {
   WeekDateInterval,
@@ -21,7 +21,7 @@ export const EPGScreen: React.FC = () => {
 
   return (
     <ScreenWrapper>
-      <View style={styles.wrapper}>
+      <View>
         <WeekDateInterval onSelectDate={(date: Date) => console.log(date)} />
         <DayHourInterval />
         <ChannelsContainer channels={reponseData.channels} />
@@ -29,7 +29,3 @@ export const EPGScreen: React.FC = () => {
     </ScreenWrapper>
   )
 }
-
-export const styles = StyleSheet.create({
-  wrapper: {},
-})

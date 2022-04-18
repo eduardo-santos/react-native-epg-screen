@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, ViewStyle } from 'react-native'
 import { useTheme } from '@hooks/useTheme'
 import { DynamicText } from '@components/DynamicText'
 import { IChannelSchedule } from '@api/models/IEPGResponseModel'
@@ -22,10 +22,14 @@ export const ChannelSchedules: React.FC<IChannelSchedulesProps> = ({
     <View style={styles.wrapper}>
       {schedules.map((schedule, index) => {
         const backgroundColor =
-          index % 2 === 0 ? colors.default.GRAPHITE : colors.app.FORTIARY
+          index % 2 === 0
+            ? colors.app.PROGRAM_CARD_1
+            : colors.app.PROGRAM_CARD_2
 
         return (
-          <View key={index} style={[styles.scheduleCard, { backgroundColor }]}>
+          <View
+            key={index}
+            style={[styles.scheduleCard, { backgroundColor } as ViewStyle]}>
             <DynamicText variant="medium">{schedule.title}</DynamicText>
           </View>
         )
