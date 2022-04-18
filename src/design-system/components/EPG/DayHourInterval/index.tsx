@@ -1,5 +1,12 @@
 import React, { useRef, useState } from 'react'
-import { FlatList, LayoutRectangle, ListRenderItem, View } from 'react-native'
+import {
+  FlatList,
+  LayoutRectangle,
+  ListRenderItem,
+  TouchableHighlight,
+  View,
+} from 'react-native'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
   ITimeInterval,
   getDayHoursIntervals,
@@ -10,7 +17,7 @@ import { DynamicButton, DynamicText } from '@components'
 import { TimeInteractiveVerticalLine } from '@components/EPG'
 import { CHANNEL_LEFT_BAR_WIDTH } from '@components/EPG/ChannelsContainer/ChannelsLeftBar/styles'
 import { ScreenWidth } from '@utils/dimensions'
-import { generateStyle } from './styles'
+import { generateStyle, RIGHT_PADDING } from './styles'
 
 interface IWeekDateIntervalProps {
   minutesInterval?: number
@@ -44,7 +51,7 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   const paddingLeft = CHANNEL_LEFT_BAR_WIDTH
   const xLineStartPosition = paddingLeft
   const xMarkLineLeftPosition = xLineStartPosition - 2
-  const xMarkLineRightPosition = ScreenWidth - textWidth / 2 - 16
+  const xMarkLineRightPosition = ScreenWidth - textWidth / 2 - RIGHT_PADDING
   const xLineEndPosition = xMarkLineRightPosition - paddingLeft
 
   const startInteractiveLineDate: Date =
@@ -84,8 +91,18 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   }
 
   const handleChangeInterval = (nextIntervalIndex: number) => {
-    setSelectedTimeIntervalIndex(nextIntervalIndex)
-    scrollToIndex(nextIntervalIndex)
+    if (nextIntervalIndex >= 0 && nextIntervalIndex <= 23) {
+      setSelectedTimeIntervalIndex(nextIntervalIndex)
+      scrollToIndex(nextIntervalIndex)
+    }
+  }
+
+  const goToNextFutureInterval = () => {
+    handleChangeInterval(selectedTimeIntervalIndex + 1)
+  }
+
+  const goToNextPastInterval = () => {
+    handleChangeInterval(selectedTimeIntervalIndex - 1)
   }
 
   const onPressNowButton = () => {
@@ -93,7 +110,9 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   }
 
   const onCurrentIntervalEndReached = () => {
-    const nextIndex = liveTimeIntervalIndex + 1
+    const nextIndex =
+      liveTimeIntervalIndex + 1 > 23 ? 0 : liveTimeIntervalIndex + 1
+
     setLiveTimeIntervalIndex(nextIndex)
     handleChangeInterval(nextIndex)
   }
@@ -105,16 +124,40 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
 
     return (
       <View style={styles.wrapper}>
-        <DynamicText
-          variant="header3"
-          color={colors.app.ACCENT}
-          style={styles.leftText}
-          {...customProps}>
-          {startTime.formatted}
-        </DynamicText>
-        <DynamicText variant="header3" color={colors.app.ACCENT}>
-          {endTime.formatted}
-        </DynamicText>
+        <TouchableHighlight
+          onPress={goToNextPastInterval}
+          style={styles.intervalPressable}>
+          <>
+            <MaterialCommunityIcons
+              name="chevron-left"
+              size={22}
+              color={colors.app.ACCENT_2}
+              style={styles.leftChevron}
+            />
+            <DynamicText
+              variant="header3"
+              color={colors.app.ACCENT}
+              style={styles.leftText}
+              {...customProps}>
+              {startTime.formatted}
+            </DynamicText>
+          </>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={goToNextFutureInterval}
+          style={styles.intervalPressable}>
+          <>
+            <DynamicText variant="header3" color={colors.app.ACCENT}>
+              {endTime.formatted}
+            </DynamicText>
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={22}
+              color={colors.app.ACCENT_2}
+              style={styles.rightChevron}
+            />
+          </>
+        </TouchableHighlight>
       </View>
     )
   }

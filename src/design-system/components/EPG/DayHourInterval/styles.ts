@@ -2,12 +2,15 @@ import { StyleSheet, ViewStyle } from 'react-native'
 import { IColors } from '@ds/colors/type'
 import { ScreenHeight, ScreenWidth } from '@utils/dimensions'
 
+export const RIGHT_PADDING = 32
+
 export const generateStyle = (
   colors: IColors,
   textWidth: number,
   xMarkLineLeftPosition: number,
   xMarkLineRightPosition: number,
 ) => {
+  const halfTextWidth = textWidth / 2
   const lineMarkStyle: ViewStyle = {
     width: 2,
     backgroundColor: colors.app.FORTIARY,
@@ -24,11 +27,24 @@ export const generateStyle = (
       borderBottomWidth: 1,
       borderBottomColor: colors.app.FORTIARY,
       paddingLeft: xMarkLineLeftPosition,
-      paddingRight: 16,
+      paddingRight: RIGHT_PADDING,
       paddingVertical: 12,
     },
+    intervalPressable: {
+      justifyContent: 'center',
+    },
+    leftChevron: {
+      position: 'absolute',
+      left: -halfTextWidth - 24,
+      alignSelf: 'center',
+    },
+    rightChevron: {
+      position: 'absolute',
+      right: -halfTextWidth,
+      alignSelf: 'center',
+    },
     leftText: {
-      marginLeft: -textWidth / 2,
+      marginLeft: -halfTextWidth,
     },
     leftMarkLine: {
       ...lineMarkStyle,
