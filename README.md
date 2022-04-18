@@ -1,5 +1,10 @@
 # react-native-epg-screen
-A React Native App with an EPG sample screen using data from a mocked API, a Settings screen to change App theme color and a Home screen to some simple information from the mocked API.
+A React Native App with an EPG sample screen:
+ - EPG Screen is using data from a mocked API
+ - Settings screen to change App theme color
+ - Home screen to some simple information from the mocked API.
+
+## Usability demonstration
 
 https://user-images.githubusercontent.com/7663481/163759387-e9ae80b7-7376-4b3f-bfe8-0d06f95552f7.mp4
 
@@ -10,6 +15,8 @@ https://user-images.githubusercontent.com/7663481/163759387-e9ae80b7-7376-4b3f-b
 - [React Native CLI](https://reactnative.dev/docs/environment-setup)
 - [Node >= v14](https://nodejs.org/ja/blog/release/v14.15.0/)
 - [Ruby >= 2.7.4](https://www.ruby-lang.org/en/news/2021/07/07/ruby-2-7-4-released/)
+
+**NOTE:** You also need to run the localhost [mocked-api](https://github.com/NoriginMedia/mock-api)
 
 ## Install dependencies
 ```sh
