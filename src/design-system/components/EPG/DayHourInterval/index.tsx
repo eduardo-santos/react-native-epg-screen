@@ -122,7 +122,6 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
     const customProps = textWidth <= 0 ? { getTextLayout: handleOnLayout } : {}
     const { startTime, endTime } = interval
 
-
     return (
       <View style={styles.wrapper}>
         <TouchableHighlight
