@@ -13,6 +13,8 @@ interface ITimeInteractiveVerticalLineProps {
   startDate: Date
   xStartPosition: number
   xEndPosition: number
+  showLine: boolean
+  showPastShadow: boolean
   onEndReached: () => void
 }
 
@@ -24,6 +26,8 @@ export const TimeInteractiveVerticalLine: React.FC<
   xStartPosition,
   xEndPosition,
   onEndReached,
+  showLine,
+  showPastShadow,
   totalMinutesInterval,
 }) => {
   const { colors } = useTheme()
@@ -37,7 +41,7 @@ export const TimeInteractiveVerticalLine: React.FC<
       setLiveDate(new Date())
     }, timeToWait)
 
-    return () => clearTimeout(interval)
+    return () => clearInterval(interval)
   }, [])
 
   const getLinePositionFromLiveDate = () => {
@@ -68,20 +72,28 @@ export const TimeInteractiveVerticalLine: React.FC<
       onEndReached()
     }
 
-    return endReached ? xEndPosition : lineHorizontalPosition
+    return lineHorizontalPosition
   }
 
   const styles = generateStyle(
     colors,
     xStartPosition,
+    xEndPosition,
     getLinePositionFromLiveDate(),
+    showLine,
   )
 
   return (
     <>
-      <View style={styles.thickCenterVerticalLine} />
-      <View style={styles.thinCenterVerticalLine} />
-      <View style={styles.pastShadow} />
+      {showLine && (
+        <View style={styles.thickCenterVerticalLine} pointerEvents="none" />
+      )}
+      {showLine && (
+        <View style={styles.thinCenterVerticalLine} pointerEvents="none" />
+      )}
+      {showPastShadow && (
+        <View style={styles.pastShadow} pointerEvents="none" />
+      )}
     </>
   )
 }
