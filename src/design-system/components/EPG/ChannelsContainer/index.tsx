@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { LayoutRectangle, ScrollView, View } from 'react-native'
-import { BottomTabBarHeightContext } from '@react-navigation/bottom-tabs'
 import { IChannel } from '@api/models/IEPGResponseModel'
 import { ChannelsLeftBar, ChannelSchedulesContainer } from '@components/EPG'
 import { styles } from './styles'
@@ -37,36 +36,30 @@ export const ChannelsContainer: React.FC<IChannelsContainerProps> = ({
   }
 
   return (
-    <BottomTabBarHeightContext.Consumer>
-      {tabBarHeight => (
-        <>
-          <ScrollView
-            ref={verticalScrollRef}
-            showsVerticalScrollIndicator={false}
-            style={styles.verticalScroll}
-            nestedScrollEnabled
-            contentContainerStyle={{
-              paddingBottom: tabBarHeight ? tabBarHeight * 2 : tabBarHeight,
-            }}>
-            <View style={styles.wrapper}>
-              <ChannelsLeftBar
-                channels={channels}
-                onSelectChannel={handleSelectedChannel}
-                getLeftCardLayout={
-                  leftBarCardWidth && leftBarCardHeight
-                    ? undefined
-                    : handleGetLeftCardLayout
-                }
-              />
+    <ScrollView
+      ref={verticalScrollRef}
+      showsVerticalScrollIndicator={false}
+      style={styles.verticalScroll}
+      nestedScrollEnabled
+      contentContainerStyle={{
+        paddingBottom: leftBarCardHeight * 2.5,
+      }}>
+      <View style={styles.wrapper}>
+        <ChannelsLeftBar
+          channels={channels}
+          onSelectChannel={handleSelectedChannel}
+          getLeftCardLayout={
+            leftBarCardWidth && leftBarCardHeight
+              ? undefined
+              : handleGetLeftCardLayout
+          }
+        />
 
-              <ChannelSchedulesContainer
-                channels={channels}
-                leftBarCardHeight={leftBarCardHeight}
-              />
-            </View>
-          </ScrollView>
-        </>
-      )}
-    </BottomTabBarHeightContext.Consumer>
+        <ChannelSchedulesContainer
+          channels={channels}
+          leftBarCardHeight={leftBarCardHeight}
+        />
+      </View>
+    </ScrollView>
   )
 }
