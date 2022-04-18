@@ -1,5 +1,6 @@
 import { StyleSheet, ViewStyle } from 'react-native'
 import { IColors } from '@ds/colors/type'
+import { ScreenHeight } from '@utils/dimensions'
 
 export const generateStyle = (
   colors: IColors,
@@ -17,6 +18,7 @@ export const generateStyle = (
 
   return StyleSheet.create({
     wrapper: {
+      width: ScreenWidth,
       flexDirection: 'row',
       justifyContent: 'space-between',
       borderBottomWidth: 1,
@@ -35,6 +37,12 @@ export const generateStyle = (
     rightMarkLine: {
       ...lineMarkStyle,
       left: xMarkLineRightPosition,
+    },
+    nowButton: {
+      position: 'absolute',
+      top: ScreenHeight * 0.62,
+      right: 16,
+      zIndex: 1000,
     },
   })
 }
