@@ -52,7 +52,11 @@ export const ChannelsContainer: React.FC<IChannelsContainerProps> = ({
               <ChannelsLeftBar
                 channels={channels}
                 onSelectChannel={handleSelectedChannel}
-                getLeftCardLayout={handleGetLeftCardLayout}
+                getLeftCardLayout={
+                  leftBarCardWidth && leftBarCardHeight
+                    ? undefined
+                    : handleGetLeftCardLayout
+                }
               />
 
               <ChannelSchedulesContainer
