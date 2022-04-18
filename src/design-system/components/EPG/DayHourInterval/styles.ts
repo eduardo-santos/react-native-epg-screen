@@ -1,6 +1,6 @@
 import { StyleSheet, ViewStyle } from 'react-native'
 import { IColors } from '@ds/colors/type'
-import { ScreenHeight } from '@utils/dimensions'
+import { ScreenHeight, ScreenWidth } from '@utils/dimensions'
 
 export const generateStyle = (
   colors: IColors,
