@@ -12,7 +12,7 @@ export const generateStyle = (colors: IColors, isSelected?: boolean) => {
       borderBottomColor: isSelected ? colors.app.PRIMARY : colors.app.FORTIARY,
     },
     logo: {
-      width: 60,
+      width: 55,
       height: 60,
     },
   })
