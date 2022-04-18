@@ -28,7 +28,7 @@ export const WeekDateInterval: React.FC<IWeekDateIntervalProps> = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       handleSelectedDay(daysInterval, currentDate)
-    }, 500)
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
