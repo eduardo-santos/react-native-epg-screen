@@ -12,10 +12,14 @@ import {
   addMinutes,
   subMinutes,
   isEqual,
+  intervalToDuration,
+  Duration,
+  isAfter,
+  isBefore,
 } from 'date-fns'
 
 export const formatDate = (
-  date: Date | string,
+  date: Date | string | number,
   desiredFormat: string,
   locale?: Locale,
 ): string => {
@@ -79,15 +83,15 @@ export const subDateMinutes = (
 }
 
 export const getMinutesDifferenceBetweenDates = (
-  startDate: Date,
-  endDate: Date,
+  startDate: Date | number,
+  endDate: Date | number,
 ): number => {
   return differenceInMinutes(startDate, endDate)
 }
 
 export const getSecondsDifferenceBetweenDates = (
-  startDate: Date,
-  endDate: Date,
+  startDate: Date | number,
+  endDate: Date | number,
 ): number => {
   return differenceInSeconds(startDate, endDate)
 }
@@ -102,7 +106,7 @@ export interface ITimeInterval {
   endTime: ITimeIntervalType
 }
 
-const getCleanHour = (date: Date, hour?: number): Date => {
+export const getCleanHour = (date: Date | number, hour?: number): Date => {
   const dateHour = new Date(date)
 
   if (hour !== undefined) {
@@ -164,4 +168,23 @@ export const getDateIndexFromInterval = (
   )
 
   return index
+}
+
+export const duration = (
+  start: Date | number,
+  end: Date | number,
+): Duration => {
+  return intervalToDuration({ start, end })
+}
+
+export const dateIsEqual = (date1: Date | number, date2: Date | number) => {
+  return isEqual(date1, date2)
+}
+
+export const isDateAfter = (date1: Date | number, date2: Date | number) => {
+  return isAfter(date1, date2)
+}
+
+export const isDateBefore = (date1: Date | number, date2: Date | number) => {
+  return isBefore(date1, date2)
 }
