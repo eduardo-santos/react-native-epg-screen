@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   FlatList,
   LayoutRectangle,
@@ -17,6 +17,7 @@ import { DynamicButton, DynamicText } from '@components'
 import { TimeInteractiveVerticalLine } from '@components/EPG'
 import { CHANNEL_LEFT_BAR_WIDTH } from '@components/EPG/ChannelsContainer/ChannelsLeftBar/styles'
 import { ScreenWidth } from '@utils/dimensions'
+import { useEPGContext } from '@contexts/EPGContext'
 import { generateStyle, RIGHT_PADDING } from './styles'
 
 interface IWeekDateIntervalProps {
@@ -39,13 +40,20 @@ const viewabilityConfig = {
 export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   minutesInterval = 60,
 }) => {
+  const {
+    dayHourScrollRef,
+    handleScrollDayHourToIndex,
+    handleScrollToIndexFailed,
+    scrollWidthRef,
+    handleScrollToPrograms,
+    selectedTimeIntervalIndex,
+    setSelectedTimeIntervalIndex,
+  } = useEPGContext()
+
   const { colors } = useTheme()
 
-  const flatListRef = useRef<FlatList<ITimeInterval>>(null)
   const [textWidth, setTextWidth] = useState<number>(0)
   const [liveTimeIntervalIndex, setLiveTimeIntervalIndex] =
-    useState<number>(currentDateIndex)
-  const [selectedTimeIntervalIndex, setSelectedTimeIntervalIndex] =
     useState<number>(currentDateIndex)
 
   const paddingLeft = CHANNEL_LEFT_BAR_WIDTH
@@ -53,6 +61,15 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   const xMarkLineLeftPosition = xLineStartPosition - 2
   const xMarkLineRightPosition = ScreenWidth - textWidth / 2 - RIGHT_PADDING
   const xLineEndPosition = xMarkLineRightPosition - paddingLeft
+
+  scrollWidthRef.current = xLineEndPosition
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSelectedTimeIntervalIndex(currentDateIndex)
+      handleScrollToPrograms(liveTimeIntervalIndex)
+    }, 1000)
+  }, [])
 
   const startInteractiveLineDate: Date =
     dayHoursInterval[liveTimeIntervalIndex].startTime.date
@@ -64,36 +81,18 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
     xMarkLineRightPosition,
   )
 
-  const scrollToIndex = (index: number) => {
-    flatListRef?.current?.scrollToIndex({
-      index,
-      viewPosition: 0,
-      animated: true,
-    })
-  }
-
-  const handleScrollToIndexFailed = ({
-    highestMeasuredFrameIndex,
-  }: {
-    index: number
-    highestMeasuredFrameIndex: number
-    averageItemLength: number
-  }) => {
-    if (!flatListRef.current?.scrollToIndex) return
-
-    flatListRef?.current.scrollToIndex({
-      index: highestMeasuredFrameIndex,
-    })
-  }
-
   const handleOnLayout = ({ width }: LayoutRectangle) => {
     setTextWidth(width)
   }
 
   const handleChangeInterval = (nextIntervalIndex: number) => {
-    if (nextIntervalIndex >= 0 && nextIntervalIndex <= 23) {
-      setSelectedTimeIntervalIndex(nextIntervalIndex)
-      scrollToIndex(nextIntervalIndex)
+    const shouldChangeInterval =
+      nextIntervalIndex !== selectedTimeIntervalIndex &&
+      nextIntervalIndex >= 0 &&
+      nextIntervalIndex <= 23
+
+    if (shouldChangeInterval) {
+      handleScrollDayHourToIndex(nextIntervalIndex)
     }
   }
 
@@ -169,7 +168,7 @@ export const DayHourInterval: React.FC<IWeekDateIntervalProps> = ({
   return (
     <View>
       <FlatList
-        ref={flatListRef}
+        ref={dayHourScrollRef}
         keyExtractor={(item, i) => `${item}-${i}`}
         data={dayHoursInterval}
         renderItem={renderItem}

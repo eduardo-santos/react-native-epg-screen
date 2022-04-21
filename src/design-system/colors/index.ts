@@ -20,6 +20,7 @@ export enum ColorsDark {
   PROGRAM_CARD_1 = '#5B5B5F',
   PROGRAM_CARD_2 = '#393939',
   TOGGLE_ACTIVE = '#767577',
+  NO_PROGRAM = '#545454',
 }
 
 export enum ColorsLight {
@@ -33,4 +34,5 @@ export enum ColorsLight {
   PROGRAM_CARD_1 = '#808080',
   PROGRAM_CARD_2 = '#A9A9A9',
   TOGGLE_ACTIVE = '#767577',
+  NO_PROGRAM = '#D3D3D3',
 }
