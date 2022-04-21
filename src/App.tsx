@@ -12,6 +12,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { BottomTabNavigator } from '@routes/Navigators/BottomTabNavigator'
 import { configureApi } from '@api/config'
 import { ThemeProvider } from '@contexts/ThemeContext'
+import { EPGProvider } from '@contexts/EPGContext'
 
 MaterialCommunityIcons.loadFont()
 configureApi()
@@ -19,11 +20,13 @@ configureApi()
 const App = () => {
   return (
     <ThemeProvider>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <BottomTabNavigator />
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <EPGProvider>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <BottomTabNavigator />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </EPGProvider>
     </ThemeProvider>
   )
 }
