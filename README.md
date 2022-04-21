@@ -6,7 +6,7 @@ A React Native App with an EPG sample screen:
 
 ## Usability demonstration
 
-https://user-images.githubusercontent.com/7663481/163759387-e9ae80b7-7376-4b3f-bfe8-0d06f95552f7.mp4
+https://user-images.githubusercontent.com/7663481/164378637-50cb7d5b-8424-48a6-8592-f5513327bf8c.mp4
 
 
 ## Pre requirements
@@ -36,9 +36,11 @@ yarn ios
 
 ## Screenshots
 ### Dark Theme
-![image](https://user-images.githubusercontent.com/7663481/163760198-3455d3f0-bad2-4daf-8e2b-2806588e3808.png)
+![RN EGP Screen by Eduardo Santos (dark)](https://user-images.githubusercontent.com/7663481/164378107-2650f914-6388-4851-98ae-2e81684139c4.png)
+
 
 ### Light Theme
-![image](https://user-images.githubusercontent.com/7663481/163760267-f9c7ff16-9a67-4bb0-8e8e-4631ddf0df7b.png)
+![RN EGP Screen by Eduardo Santos (light) png](https://user-images.githubusercontent.com/7663481/164378137-c6c77132-5ea5-41be-a1c5-2b980b9bff64.png)
+
 
 ```
